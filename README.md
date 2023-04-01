@@ -2,10 +2,18 @@
 
 This Python API allows you to fetch comments from one or more YouTube playlists using the YouTube Data API. You can use your API key to authenticate your requests and save the fetched comments data to a CSV file.
 
-![YouTube Playlist Comments API](https://example.com/images/api-image.jpg)
+![YouTube Playlist Comments API](ec_191219_m.jpg)
 
 ## Installation
 
+Run the following command in command promp or terminal : 
+
+```gitbash 
+git clone https://github.com/Manraj-Mann/youtube-comments-api.git
+```
+```bash
+cd youtube-comments-api
+```
 To use this API, you'll need to install the following packages:
 
 - `google-auth`
@@ -16,27 +24,38 @@ To use this API, you'll need to install the following packages:
 
 You can install these packages using pip:
 
-
+```bash
+pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client pandas
+```
 ## Usage
 
 To use the API, you'll need to provide your YouTube API key, one or more playlist IDs, and a name for the CSV file where the comments data will be saved.
+This data is stored in api_key.json file : 
 
-Here's an example of how to use the API:
+Initially it will look like : 
 
-```python
-from youtube_playlist_comments import YouTubePlaylistComments
+```json
+{
+    "key" : "<Replace API Key here >",
+    "playlists" : ["<Playlist ID 1>" ,"<Playlist ID 2>"],
+    "csv_name" : "<<CSV Filename>>"
+}
+```
+After adding the credentials and details it will look like : 
+```json
+{
+    "key" : "AIzaSyBbbaBy_EWgyZhU1QcVLdRjXMPmV5OmAtU",
+    "playlists" : ["PLWKjhJtqVAbmGw5fN5BQlwuug-8bDmabi" ,"PLWKjhJtqVAbm5dir5TLEy2aZQMG7cHEZp"],
+    "csv_name" : "freecodecamp_comments"
+}
+```
+**Note** : You can add any number of playlist ID's in the list.
 
-# Initialize the API with your API key
-api = YouTubePlaylistComments(api_key='YOUR_API_KEY')
+## Running the API
 
-# Fetch comments for one or more playlists
-playlist_ids = ['PLAYLIST_ID_1', 'PLAYLIST_ID_2']
-comments_data = api.fetch_comments(playlist_ids=playlist_ids)
+Open the command promp or terminal and run the following in same directory : 
 
-# Save the comments data to a CSV file
-csv_filename = 'comments.csv'
-api.save_comments_to_csv(comments_data, csv_filename)
-
-
-Note that you can replace the image URL and example code with your own content. Also, be sure to include the necessary information and instructions for using your API.
+```bash
+python comments_api.py
+```
 
