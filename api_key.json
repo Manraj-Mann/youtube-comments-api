@@ -1,0 +1,5 @@
+{
+    "key" : "<Replace API Key here >",
+    "playlists" : ["<Playlist ID 1>" ,"<Playlist ID 2>"],
+    "csv_name" : "<<CSV Filename>>"
+}
